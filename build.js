@@ -60,7 +60,7 @@ async function generateStaticPages() {
 
     for (const page of pages) {
         const templatePath = path.join(__dirname, 'src', page.template);
-        const outputPath = path.join(__dirname, 'build', page.output);
+        const outputPath = path.join(__dirname, 'docs', page.output);
 
         // Render template
         const html = await renderTemplate(templatePath, page.data);
