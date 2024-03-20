@@ -1,13 +1,7 @@
 <%- include('partials/header') %>
+<%- include('partials/nav') %>
 
-  <div class="ui tablet computer only grid">
-    <div class="ui top fixed borderless huge inverted menu">
-      <div class="ui container">
-        <a class="header item">Project Name</a>
-        <a class="active item">Home</a> <a class="item">About</a>
-        <a class="item">Contact</a>
-      </div>
-    </div>
+
     <div class="ui container">
       <div class="ui padded grid">
         <div class="thirteen wide column">
@@ -32,7 +26,7 @@
                   <h1 class="ui header">
                     <%= post.metadata.title %>
                   </h1>
-                  <button class="ui small basic button">View details &raquo;</button>
+                  <a class="ui small basic button" href="<%= post.metadata.link %>">View details &raquo;</a>
                 </div>
               </div>
               <% }) %>
@@ -55,7 +49,6 @@
         </div>
       </div>
     </div>
-  </div>
 
 
   <%- include('partials/footer') %>

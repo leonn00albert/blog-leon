@@ -2,6 +2,7 @@
 published: false
 title: Test Article
 description: sadasd
+slug: test
 author: asdasd
 date: 2024-03-19
 ---
@@ -17,11 +18,9 @@ In this tutorial, you'll learn how to create a Python web scraper using the `req
 
 First, ensure you have Python installed on your system. You'll also need to install the `requests` and `beautifulsoup4` libraries. You can install them using pip:
 
-```
-bash
-```
 
-```
+
+```bash
 pip install requests beautifulsoup4
 ```
 
@@ -29,11 +28,8 @@ pip install requests beautifulsoup4
 
 Create a new Python script and import the necessary libraries:
 
-```
-python
-```
 
-```
+```python
 import os
 import requests
 from bs4 import BeautifulSoup
@@ -44,11 +40,8 @@ from urllib.parse import urljoin
 
 Define two helper functions: `download_pdf` to download PDF files and `select_category` to display category options and prompt the user to select one.
 
-```
-python
-```
 
-```
+```python
 # Function to download a PDF file
 def download_pdf(url, category):
     # Implementation
@@ -62,11 +55,9 @@ def select_category(categories):
 
 Send a GET request to the URL of the website, parse the HTML content using BeautifulSoup, and find all category links.
 
-```
-python
-```
 
-```
+
+```python
 # Send a GET request to the URL
 url = "https://www.survivorlibrary.com/index.php/8-category"
 response = requests.get(url)
@@ -82,11 +73,10 @@ category_links = soup.select(".parent a")
 
 Extract category names from the category links.
 
-```
-python
-```
 
-```
+
+```python
+
 # Extract category names from the links
 categories = [link.text.strip() for link in category_links]
 ```
@@ -95,11 +85,9 @@ categories = [link.text.strip() for link in category_links]
 
 Display the category selection menu and prompt the user to select a category.
 
-```
-python
-```
 
-```
+
+```python
 # Display the category selection menu and get the selected category
 selected_category = select_category(categories)
 ```
@@ -108,11 +96,8 @@ selected_category = select_category(categories)
 
 Navigate to the URL of the selected category, find all links starting with "/library", and download PDF files.
 
-```
-python
-```
 
-```
+```python
 # Find the corresponding link for the selected category
 selected_category_link = category_links[categories.index(selected_category)]
 

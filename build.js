@@ -2,8 +2,7 @@ const ejs = require('ejs');
 const fs = require('fs');
 const path = require('path');
 const fm = require('front-matter');
-
-// Directory containing Markdown files
+const { marked } = require('marked');
 const directoryPath = '_posts';
 
 async function getPosts() {
@@ -14,17 +13,17 @@ async function getPosts() {
                 reject(err);
                 return;
             }
-        
+
             const posts = [];
-        
+
             files.forEach(file => {
                 const filePath = path.join(directoryPath, file);
-        
+
                 if (path.extname(file).toLowerCase() === '.md') {
                     const mdContent = fs.readFileSync(filePath, 'utf8');
-        
+
                     const { attributes, body } = fm(mdContent);
-                  
+
                     const markdownObject = {
                         metadata: attributes,
                         content: body
@@ -32,7 +31,7 @@ async function getPosts() {
                     posts.push(markdownObject);
                 }
             });
-            
+
             resolve(posts);
         });
     });
@@ -54,22 +53,41 @@ function renderTemplate(templatePath, data) {
 
 async function generateStaticPages() {
     const posts = await getPosts();
-    const pages = [
-        { template: 'index.ejs', output: 'index.html', data: {posts} },
-    ];
+
+    const pages = [];
+
+    posts.forEach((p) => {
+        p.metadata.link = 'pages/' + p.metadata.slug + '.html';
+        p.content = marked(p.content);
+        p.metadata.date = convertDate(p.metadata.date)
+        pages.push({ template: 'pages/page.ejs', output: p.metadata.link, data: { post: p } })
+    });
+    pages.push({ template: 'index.ejs', output: 'index.html', data: { posts } });
 
     for (const page of pages) {
         const templatePath = path.join(__dirname, 'src', page.template);
         const outputPath = path.join(__dirname, 'docs', page.output);
 
-        // Render template
         const html = await renderTemplate(templatePath, page.data);
 
-        // Write HTML to file
         fs.writeFileSync(outputPath, html);
         console.log(`Generated: ${outputPath}`);
     }
 }
 
-// Generate static pages
+
+function convertDate(date) {
+    var timestamp = new Date(date);
+
+    var day = timestamp.toLocaleString('en-us', { weekday: 'long' });
+    var month = timestamp.toLocaleString('en-us', { month: 'long' });
+    var date = timestamp.getDate();
+    var year = timestamp.getFullYear();
+
+
+
+    var humanReadableDate = day + ', ' + month + ' ' + date + ', ' + year ;
+    return humanReadableDate;
+}
+
 generateStaticPages().catch(err => console.error(err));

@@ -1,0 +1,264 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=no"
+    />
+    <meta
+      name="description"
+      content="Semantic-UI-Forest, collection of design, themes and templates for Semantic-UI."
+    />
+    <meta name="keywords" content="Semantic-UI, Theme, Design, Template" />
+    <meta name="author" content="PPType" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Off-canvas Template for Semantic-UI</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/agate.min.css">
+
+    <style type="text/css">
+      body {
+        padding-top: 56px;
+        -webkit-font-smoothing: antialiased;
+        -moz-font-smoothing: grayscale;
+      }
+
+      .ui.grid {
+        margin-top: 0 !important;
+      }
+
+      .ui.vertical.menu {
+        width: auto;
+      }
+
+      .ui.right.sidebar.vertical.menu {
+        width: 15rem;
+      }
+
+      .three.wide.column > .ui.vertical.menu > a.item.active,
+      .ui.right.sidebar.vertical.menu > a.item.active,
+      .three.wide.column > .ui.vertical.menu > a.item.active:hover,
+      .ui.right.sidebar.vertical.menu > a.item.active:hover {
+        background-color: #337ab7;
+        color: white;
+        border: none !important;
+      }
+
+      .three.wide.column > .ui.vertical.menu > a.item:hover,
+      .ui.right.sidebar.vertical.menu > a.item:hover {
+        background-color: #f5f5f5;
+      }
+
+      .ui.fixed.borderless.menu {
+        padding: 0;
+        flex-wrap: wrap;
+      }
+
+      .ui.fixed.borderless.menu .row > a.header.item {
+        font-size: 1.2rem;
+      }
+
+      .ui.message {
+        background-color: rgba(238, 238, 238);
+        box-shadow: none;
+        padding: 5rem 4rem;
+      }
+
+      .ui.message h1.ui.header {
+        font-size: 4.5rem;
+      }
+
+      .ui.message p.lead {
+        font-size: 1.3rem;
+        color: #333333;
+        line-height: 1.4;
+        font-weight: 300;
+      }
+
+      @media only screen and (max-width: 767px) {
+        .ui.message h1.ui.header {
+          font-size: 2rem;
+        }
+      }
+
+      button.ui.top.right.attached.button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        border-bottom-right-radius: 0;
+        padding-right: 0.75rem;
+      }
+
+      .pushable {
+        height: unset;
+        overflow-x: visible;
+      }
+
+      .ui.right.sidebar {
+        height: auto !important;
+        margin-top: 1rem !important;
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      footer {
+        padding: 24px 0;
+      }
+    </style>
+  </head>
+
+  <body id="root">
+
+<div class="ui borderless blue inverted menu">
+    <div class="ui container">
+        <a class="header active item" href="#root">Home</a>
+        <a class="item" href="#root">New feature</a>
+        <a class="item" href="#root">Press</a>
+        <a class="item" href="#root">New hires</a>
+        <a class="item" href="#root">About</a>
+    </div>
+</div>
+    <div class="ui grid stackable container">
+        <div class="row" id="page-header">
+            <div class="ui basic segment">
+                <h1 class="ui huge header">
+                    <div class="content">Test Article</div>
+                    <div class="sub header">
+                        A simple example of creating a blog with Semantic-UI.
+                    </div>
+                </h1>
+            </div>
+        </div>
+        <div class="row" id="article">
+            <div class="eleven wide column">
+                <h2 class="ui large header">
+                    <div class="content">Test Article</div>
+                    <div class="sub header">
+                        Tuesday, March 19, 2024 by <a href="#root">asdasd</a>
+                    </div>
+                </h2>
+                <div class="ui hidden divider"></div>
+                    <h2>Python Web Scraper to Download PDF Files</h2>
+<h2>Introduction</h2>
+<p>When choosing a website for this tutorial, we decided to use the Survivor Library (<a href="https://www.survivorlibrary.com">https://www.survivorlibrary.com</a>) as our target. The Survivor Library is a valuable resource that provides a vast collection of survival-related books and documents, covering topics such as wilderness survival, homesteading, self-sufficiency, and more. With its extensive collection of PDF files covering various survival topics, the Survivor Library offers an ideal scenario for practising web scraping techniques. By automating the process of downloading PDF files from specific categories on the Survivor Library website, you can build a valuable tool for collecting and organizing survival-related resources. By the end of this tutorial, you&#39;ll have a functional Python script that can scrape PDF files from the Survivor Library based on user-selected categories, demonstrating the power and versatility of web scraping for data collection and automation tasks. Now, let&#39;s dive into the implementation details.</p>
+<p>In this tutorial, you&#39;ll learn how to create a Python web scraper using the <code>requests</code> and <code>BeautifulSoup</code> libraries to download PDF files from a website. The script will allow users to select a category, navigate to the corresponding page, and download all PDF files associated with that category.</p>
+<h3>Step 1: Setup</h3>
+<p>First, ensure you have Python installed on your system. You&#39;ll also need to install the <code>requests</code> and <code>beautifulsoup4</code> libraries. You can install them using pip:</p>
+<pre><code class="language-bash">pip install requests beautifulsoup4
+</code></pre>
+<h3>Step 2: Import Libraries</h3>
+<p>Create a new Python script and import the necessary libraries:</p>
+<pre><code class="language-python">import os
+import requests
+from bs4 import BeautifulSoup
+from urllib.parse import urljoin
+</code></pre>
+<h3>Step 3: Define Helper Functions</h3>
+<p>Define two helper functions: <code>download_pdf</code> to download PDF files and <code>select_category</code> to display category options and prompt the user to select one.</p>
+<pre><code class="language-python"># Function to download a PDF file
+def download_pdf(url, category):
+    # Implementation
+
+# Function to select a category
+def select_category(categories):
+    # Implementation
+</code></pre>
+<h3>Step 4: Send a GET Request and Parse HTML</h3>
+<p>Send a GET request to the URL of the website, parse the HTML content using BeautifulSoup, and find all category links.</p>
+<pre><code class="language-python"># Send a GET request to the URL
+url = &quot;https://www.survivorlibrary.com/index.php/8-category&quot;
+response = requests.get(url)
+
+# Parse the HTML content
+soup = BeautifulSoup(response.content, &#39;html.parser&#39;)
+
+# Find all category links
+category_links = soup.select(&quot;.parent a&quot;)
+</code></pre>
+<h3>Step 5: Extract Category Names</h3>
+<p>Extract category names from the category links.</p>
+<pre><code class="language-python">
+# Extract category names from the links
+categories = [link.text.strip() for link in category_links]
+</code></pre>
+<h3>Step 6: Display Category Selection Menu</h3>
+<p>Display the category selection menu and prompt the user to select a category.</p>
+<pre><code class="language-python"># Display the category selection menu and get the selected category
+selected_category = select_category(categories)
+</code></pre>
+<h3>Step 7: Navigate to Selected Category URL</h3>
+<p>Navigate to the URL of the selected category, find all links starting with &quot;/library&quot;, and download PDF files.</p>
+<pre><code class="language-python"># Find the corresponding link for the selected category
+selected_category_link = category_links[categories.index(selected_category)]
+
+# Navigate to the URL of the selected category
+selected_category_url = urljoin(url, selected_category_link[&#39;href&#39;])
+selected_category_response = requests.get(selected_category_url)
+selected_category_soup = BeautifulSoup(selected_category_response.content, &#39;html.parser&#39;)
+
+# Find all links starting with &quot;/library&quot;
+library_links = selected_category_soup.find_all(&#39;a&#39;, href=lambda href: href and href.startswith(&quot;/library&quot;))
+
+# Download and save PDF files
+for link in library_links:
+    pdf_url = urljoin(selected_category_url, link[&#39;href&#39;])
+    download_pdf(pdf_url, selected_category)
+</code></pre>
+<h3>Step 8: Run the Script</h3>
+<p>Run the Python script and follow the prompts to select a category. The script will then download PDF files associated with the selected category.</p>
+<p>That&#39;s it! You&#39;ve created a Python web scraper to download PDF files</p>
+
+            </div>
+            <div class="four wide right floated column">
+                <div class="ui secondary segment">
+                    <h4 class="ui header">About</h4>
+                    <p>
+                        Etiam porta <i>sem malesuada magna mollis euismod</i>. Cras mattis
+                        consectetur purus sit amet fermentum. Aenean lacinia bibendum
+                        nulla sed consectetur.
+                    </p>
+                </div>
+                <h4 class="ui header">Archives</h4>
+                <div class="ui list">
+                    <a class="item">Septempber 2017</a> <a class="item">August 2017</a>
+                    <a class="item">June 2017</a> <a class="item">April 2017</a>
+                    <a class="item">March 2017</a> <a class="item">February 2017</a>
+                    <a class="item">January 2017</a> <a class="item">December 2016</a>
+                    <a class="item">October 2016</a> <a class="item">July 2016</a>
+                    <a class="item">July 2016</a> <a class="item">May 2016</a>
+                    <a class="item">April 2016</a> <a class="item">January 2016</a>
+                    <a class="item">May 2015</a>
+                </div>
+                <h4 class="ui header">Elsewhere</h4>
+                <div class="ui list">
+                    <a class="item">GitHub</a> <a class="item">Twitter</a>
+                    <a class="item">Facebook</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="ui secondary segment">
+        <div class="ui center aligned container">
+            <p>
+                Blog template built for Semantic-UI by
+                <a href="https://semantic-ui-forest.com">@Semantic-UI-Forest</a>.
+            </p>
+            <a href="#root">Back to top</a>
+        </div>
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+<!-- and it's easy to individually load additional languages -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+
+<script>hljs.highlightAll();</script>
+</body>
+</html>

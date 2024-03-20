@@ -19,6 +19,8 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
       type="text/css"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/agate.min.css">
+
     <style type="text/css">
       body {
         padding-top: 56px;
@@ -111,15 +113,17 @@
   </head>
 
   <body id="root">
-
-  <div class="ui tablet computer only grid">
-    <div class="ui top fixed borderless huge inverted menu">
-      <div class="ui container">
-        <a class="header item">Project Name</a>
-        <a class="active item">Home</a> <a class="item">About</a>
-        <a class="item">Contact</a>
-      </div>
+<div class="ui borderless blue inverted menu">
+    <div class="ui container">
+        <a class="header active item" href="#root">Home</a>
+        <a class="item" href="#root">New feature</a>
+        <a class="item" href="#root">Press</a>
+        <a class="item" href="#root">New hires</a>
+        <a class="item" href="#root">About</a>
     </div>
+</div>
+
+
     <div class="ui container">
       <div class="ui padded grid">
         <div class="thirteen wide column">
@@ -142,9 +146,9 @@
               <div class="three column row">
                 <div class="column">
                   <h1 class="ui header">
-                    
+                    Test Article
                   </h1>
-                  <button class="ui small basic button">View details &raquo;</button>
+                  <a class="ui small basic button" href="pages/test.html">View details &raquo;</a>
                 </div>
               </div>
               
@@ -167,10 +171,15 @@
         </div>
       </div>
     </div>
-  </div>
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+<!-- and it's easy to individually load additional languages -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+
+<script>hljs.highlightAll();</script>
 </body>
 </html>
