@@ -17,6 +17,6 @@ As a developer, this project is not just about overcoming technical challenges; 
 
 Stay tuned for updates as I continue to tackle obstacles, experiment with AI algorithms, and push the limits of what's possible with my Raspberry Pi robot.
 
-Cheers to the journey ahead!  
+**Cheers to the journey ahead!**  
   
 ![](/media/IMG_20240320_212820_127.jpg)
