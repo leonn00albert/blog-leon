@@ -1,26 +1,32 @@
 <%- include('../partials/header') %>
 
 <%- include('../partials/nav') %>
+    <style>
+        .content p img {
+            width: 300px;
+            border-radius:  10px;
+        }
+    </style>
     <div class="ui grid stackable container">
         <div class="row" id="page-header">
             <div class="ui basic segment">
                 <h1 class="ui huge header">
                     <div class="content"><%- post.metadata.title %></div>
                     <div class="sub header">
-                        A simple example of creating a blog with Semantic-UI.
+                        <%- post.metadata.category %>
                     </div>
                 </h1>
             </div>
         </div>
         <div class="row" id="article">
-            <div class="eleven wide column">
+            <div class="eleven wide column content">
                 <h2 class="ui large header">
-                    <div class="content"><%- post.metadata.title %></div>
+                    <div class="content"><%- post.metadata.description %></div>
                     <div class="sub header">
                         <%- post.metadata.date %> by <a href="#root"><%- post.metadata.author %></a>
                     </div>
                 </h2>
-                <div class="ui hidden divider"></div>
+                <div class="ui hidden divider "></div>
                     <%-post.content %>
             </div>
             <div class="four wide right floated column">

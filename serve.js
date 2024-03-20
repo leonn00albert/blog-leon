@@ -16,7 +16,7 @@ const server = http.createServer((req, res) => {
   
   else if (req.url.startsWith('/media/')) {
     // Serve files from the 'pages' directory
-    filePath = path.join(__dirname, 'media' + req.url);
+    filePath = path.join(__dirname,  req.url);
     
   }
   else {
