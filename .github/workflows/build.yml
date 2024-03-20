@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - main
+  workflow_run:
+    workflows:
+      - 'Build'
+    types: 
+      - completed
 
 jobs:
   build:
@@ -23,3 +28,13 @@ jobs:
 
       - name: Build project
         run: npm run build
+
+      # Commit changes only if they are not made by GitHub Actions bot
+      - name: Commit changes
+        if: github.actor != 'github-actions'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "Automated build commit"
+          git push
