@@ -1,0 +1,202 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=no"
+    />
+    <meta
+      name="description"
+      content="Semantic-UI-Forest, collection of design, themes and templates for Semantic-UI."
+    />
+    <meta name="keywords" content="Semantic-UI, Theme, Design, Template" />
+    <meta name="author" content="PPType" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Off-canvas Template for Semantic-UI</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/agate.min.css">
+
+    <style type="text/css">
+      body {
+        padding-top: 56px;
+        -webkit-font-smoothing: antialiased;
+        -moz-font-smoothing: grayscale;
+      }
+
+      .ui.grid {
+        margin-top: 0 !important;
+      }
+
+      .ui.vertical.menu {
+        width: auto;
+      }
+
+      .ui.right.sidebar.vertical.menu {
+        width: 15rem;
+      }
+
+      .three.wide.column > .ui.vertical.menu > a.item.active,
+      .ui.right.sidebar.vertical.menu > a.item.active,
+      .three.wide.column > .ui.vertical.menu > a.item.active:hover,
+      .ui.right.sidebar.vertical.menu > a.item.active:hover {
+        background-color: #337ab7;
+        color: white;
+        border: none !important;
+      }
+
+      .three.wide.column > .ui.vertical.menu > a.item:hover,
+      .ui.right.sidebar.vertical.menu > a.item:hover {
+        background-color: #f5f5f5;
+      }
+
+      .ui.fixed.borderless.menu {
+        padding: 0;
+        flex-wrap: wrap;
+      }
+
+      .ui.fixed.borderless.menu .row > a.header.item {
+        font-size: 1.2rem;
+      }
+
+      .ui.message {
+        background-color: rgba(238, 238, 238);
+        box-shadow: none;
+        padding: 5rem 4rem;
+      }
+
+      .ui.message h1.ui.header {
+        font-size: 4.5rem;
+      }
+
+      .ui.message p.lead {
+        font-size: 1.3rem;
+        color: #333333;
+        line-height: 1.4;
+        font-weight: 300;
+      }
+
+      @media only screen and (max-width: 767px) {
+        .ui.message h1.ui.header {
+          font-size: 2rem;
+        }
+      }
+
+      button.ui.top.right.attached.button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        border-bottom-right-radius: 0;
+        padding-right: 0.75rem;
+      }
+
+      .pushable {
+        height: unset;
+        overflow-x: visible;
+      }
+
+      .ui.right.sidebar {
+        height: auto !important;
+        margin-top: 1rem !important;
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      footer {
+        padding: 24px 0;
+      }
+    </style>
+  </head>
+
+  <body id="root">
+
+<div class="ui borderless blue inverted menu">
+    <div class="ui container">
+        <a class="header active item" href="#root">Home</a>
+        <a class="item" href="#root">New feature</a>
+        <a class="item" href="#root">Press</a>
+        <a class="item" href="#root">New hires</a>
+        <a class="item" href="#root">About</a>
+    </div>
+</div>
+    <div class="ui grid stackable container">
+        <div class="row" id="page-header">
+            <div class="ui basic segment">
+                <h1 class="ui huge header">
+                    <div class="content">Robotics project - progress Update</div>
+                    <div class="sub header">
+                        A simple example of creating a blog with Semantic-UI.
+                    </div>
+                </h1>
+            </div>
+        </div>
+        <div class="row" id="article">
+            <div class="eleven wide column">
+                <h2 class="ui large header">
+                    <div class="content">Robotics project - progress Update</div>
+                    <div class="sub header">
+                        Wednesday, March 20, 2024 by <a href="#root">Leon</a>
+                    </div>
+                </h2>
+                <div class="ui hidden divider"></div>
+                    <p>As a developer, diving into the world of Raspberry Pi robotics presents a myriad of challenges and opportunities. My current project involves integrating various sensors, including ultrasonic object avoidance, PID wheel counters, and a servo-controlled camera, to build a versatile robot. However, like any ambitious endeavor, this journey has been marked by hurdles and the need for innovative solutions.</p>
+<p>One major roadblock I encountered was the inability to run OpenCV 2 on the Raspberry Pi. Despite following instructions meticulously, I faced compatibility issues and struggled with the Python package. Rather than banging my head against the wall, I pivoted towards a different approach. I set up a node server to handle the camera module, streaming the video feed back to the robot&#39;s main server for servo control. This workaround not only circumvented the compatibility issues but also streamlined the system&#39;s architecture.</p>
+<p>Looking ahead, I&#39;m keen on integrating artificial intelligence (AI) and machine learning (ML) to enhance the robot&#39;s capabilities. Obstacle avoidance, object tracking, and lane following are prime candidates for AI-driven solutions. By leveraging sensor data and implementing AI algorithms, I aim to equip the robot with the intelligence to navigate complex environments autonomously.</p>
+<p>As a developer, this project is not just about overcoming technical challenges; it&#39;s also a journey of learning and exploration. Each hurdle presents an opportunity to innovate and refine my coding skills. I&#39;m committed to documenting my progress and sharing insights with the community. Together, we can push the boundaries of Raspberry Pi robotics and unlock new possibilities with AI and ML.</p>
+<p>Stay tuned for updates as I continue to tackle obstacles, experiment with AI algorithms, and push the limits of what&#39;s possible with my Raspberry Pi robot.</p>
+<p><strong>Cheers to the journey ahead!</strong>  </p>
+<p><img src="/media/IMG_20240320_212820_127.jpg" alt=""></p>
+
+            </div>
+            <div class="four wide right floated column">
+                <div class="ui secondary segment">
+                    <h4 class="ui header">About</h4>
+                    <p>
+                        Etiam porta <i>sem malesuada magna mollis euismod</i>. Cras mattis
+                        consectetur purus sit amet fermentum. Aenean lacinia bibendum
+                        nulla sed consectetur.
+                    </p>
+                </div>
+                <h4 class="ui header">Archives</h4>
+                <div class="ui list">
+                    <a class="item">Septempber 2017</a> <a class="item">August 2017</a>
+                    <a class="item">June 2017</a> <a class="item">April 2017</a>
+                    <a class="item">March 2017</a> <a class="item">February 2017</a>
+                    <a class="item">January 2017</a> <a class="item">December 2016</a>
+                    <a class="item">October 2016</a> <a class="item">July 2016</a>
+                    <a class="item">July 2016</a> <a class="item">May 2016</a>
+                    <a class="item">April 2016</a> <a class="item">January 2016</a>
+                    <a class="item">May 2015</a>
+                </div>
+                <h4 class="ui header">Elsewhere</h4>
+                <div class="ui list">
+                    <a class="item">GitHub</a> <a class="item">Twitter</a>
+                    <a class="item">Facebook</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="ui secondary segment">
+        <div class="ui center aligned container">
+            <p>
+                Blog template built for Semantic-UI by
+                <a href="https://semantic-ui-forest.com">@Semantic-UI-Forest</a>.
+            </p>
+            <a href="#root">Back to top</a>
+        </div>
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+<!-- and it's easy to individually load additional languages -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+
+<script>hljs.highlightAll();</script>
+</body>
+</html>
