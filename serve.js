@@ -13,6 +13,10 @@ const server = http.createServer((req, res) => {
     // Serve files from the 'pages' directory
     filePath = path.join(__dirname, 'docs' + req.url);
   }
+  else if (req.url.startsWith('/collection/')) {
+    // Serve files from the 'pages' directory
+    filePath = path.join(__dirname, 'docs' + req.url);
+  }
   
   else if (req.url.startsWith('/media/')) {
     // Serve files from the 'pages' directory

@@ -114,41 +114,52 @@
 
   <body id="root">
 
-<div class="ui borderless blue inverted menu">
+    <div class="ui borderless blue inverted menu">
     <div class="ui container">
         <a class="header active item" href="#root">Home</a>
-        <a class="item" href="#root">New feature</a>
-        <a class="item" href="#root">Press</a>
-        <a class="item" href="#root">New hires</a>
+        
+        
+            <a class="item" href="#technology">Technology</a>
+        
+            <a class="item" href="#robotics">Robotics</a>
+        
+            <a class="item" href="#programming">Programming</a>
+        
+            <a class="item" href="#projects">Projects</a>
+        
+            <a class="item" href="#miscellaneous">Miscellaneous</a>
+        
+        
         <a class="item" href="#root">About</a>
     </div>
 </div>
-    <style>
-        .content p img {
-            width: 300px;
-            border-radius:  10px;
-        }
-    </style>
-    <div class="ui grid stackable container">
-        <div class="row" id="page-header">
-            <div class="ui basic segment">
-                <h1 class="ui huge header">
-                    <div class="content">Test Article</div>
-                    <div class="sub header">
-                        
-                    </div>
-                </h1>
+
+        <style>
+            .content p img {
+                width: 300px;
+                border-radius: 10px;
+            }
+        </style>
+        <div class="ui grid stackable container">
+            <div class="row" id="page-header">
+                <div class="ui basic segment">
+                    <h1 class="ui huge header">
+                        <div class="content">Test Article</div>
+                        <div class="sub header">
+                            
+                        </div>
+                    </h1>
+                </div>
             </div>
-        </div>
-        <div class="row" id="article">
-            <div class="eleven wide column content">
-                <h2 class="ui large header">
-                    <div class="content">sadasd</div>
-                    <div class="sub header">
-                        Tuesday, March 19, 2024 by <a href="#root">asdasd</a>
-                    </div>
-                </h2>
-                <div class="ui hidden divider "></div>
+            <div class="row" id="article">
+                <div class="eleven wide column content">
+                    <h2 class="ui large header">
+                        <div class="content">sadasd</div>
+                        <div class="sub header">
+                            Tue Mar 19 2024 01:00:00 GMT+0100 (Central European Standard Time) by <a href="#root">asdasd</a>
+                        </div>
+                    </h2>
+                    <div class="ui hidden divider "></div>
                     <h2>Python Web Scraper to Download PDF Files</h2>
 <h2>Introduction</h2>
 <p>When choosing a website for this tutorial, we decided to use the Survivor Library (<a href="https://www.survivorlibrary.com">https://www.survivorlibrary.com</a>) as our target. The Survivor Library is a valuable resource that provides a vast collection of survival-related books and documents, covering topics such as wilderness survival, homesteading, self-sufficiency, and more. With its extensive collection of PDF files covering various survival topics, the Survivor Library offers an ideal scenario for practising web scraping techniques. By automating the process of downloading PDF files from specific categories on the Survivor Library website, you can build a valuable tool for collecting and organizing survival-related resources. By the end of this tutorial, you&#39;ll have a functional Python script that can scrape PDF files from the Survivor Library based on user-selected categories, demonstrating the power and versatility of web scraping for data collection and automation tasks. Now, let&#39;s dive into the implementation details.</p>
@@ -219,46 +230,40 @@ for link in library_links:
 <p>Run the Python script and follow the prompts to select a category. The script will then download PDF files associated with the selected category.</p>
 <p>That&#39;s it! You&#39;ve created a Python web scraper to download PDF files</p>
 
-            </div>
-            <div class="four wide right floated column">
-                <div class="ui secondary segment">
-                    <h4 class="ui header">About</h4>
-                    <p>
-                        Etiam porta <i>sem malesuada magna mollis euismod</i>. Cras mattis
-                        consectetur purus sit amet fermentum. Aenean lacinia bibendum
-                        nulla sed consectetur.
-                    </p>
                 </div>
-                <h4 class="ui header">Archives</h4>
-                <div class="ui list">
-                    <a class="item">Septempber 2017</a> <a class="item">August 2017</a>
-                    <a class="item">June 2017</a> <a class="item">April 2017</a>
-                    <a class="item">March 2017</a> <a class="item">February 2017</a>
-                    <a class="item">January 2017</a> <a class="item">December 2016</a>
-                    <a class="item">October 2016</a> <a class="item">July 2016</a>
-                    <a class="item">July 2016</a> <a class="item">May 2016</a>
-                    <a class="item">April 2016</a> <a class="item">January 2016</a>
-                    <a class="item">May 2015</a>
-                </div>
-                <h4 class="ui header">Elsewhere</h4>
-                <div class="ui list">
-                    <a class="item">GitHub</a> <a class="item">Twitter</a>
-                    <a class="item">Facebook</a>
+                <div class="four wide right floated column">
+                    <div class="ui secondary segment">
+                        <h4 class="ui header">About</h4>
+                        <p>
+                            Etiam porta <i>sem malesuada magna mollis euismod</i>. Cras mattis
+                            consectetur purus sit amet fermentum. Aenean lacinia bibendum
+                            nulla sed consectetur.
+                        </p>
+                    </div>
+                    <h4 class="ui header">Archives</h4>
+                    <div class="ui list">
+         
+                    </div>
+                    
+                    <h4 class="ui header">Elsewhere</h4>
+                    <div class="ui list">
+                        <a class="item">GitHub</a> <a class="item">Twitter</a>
+                        <a class="item">Facebook</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <footer class="ui secondary segment">
-        <div class="ui center aligned container">
-            <p>
-                Blog template built for Semantic-UI by
-                <a href="https://semantic-ui-forest.com">@Semantic-UI-Forest</a>.
-            </p>
-            <a href="#root">Back to top</a>
-        </div>
+        <footer class="ui secondary segment">
+            <div class="ui center aligned container">
+                <p>
+                    Blog template built for Semantic-UI by
+                    <a href="https://semantic-ui-forest.com">@Semantic-UI-Forest</a>.
+                </p>
+                <a href="#root">Back to top</a>
+            </div>
 
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 
