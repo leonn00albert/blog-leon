@@ -5,13 +5,7 @@ const fm = require('front-matter');
 const { marked } = require('marked');
 const directoryPath = '_posts';
 
-const categories = [
-    'Technology',
-    'Robotics',
-    'Programming',
-    'Projects', 
-    'Miscellaneous' 
-];
+
 
 
 async function getPosts() {
@@ -67,6 +61,19 @@ async function generateStaticPages() {
     const datesSet = new Set();
     const collection = [];
 
+    const core = {
+        links : [
+            {name: 'Github', href: 'https://github.com/leonn00albert'}
+        ],
+        categories : [
+            'Technology',
+            'Robotics',
+            'Programming',
+            'Projects', 
+            'Miscellaneous' 
+        ]
+    }
+
     posts.forEach((p) => {
         p.metadata.link = 'pages/' + p.metadata.slug + '.html';
         p.content = marked(p.content);
@@ -84,7 +91,7 @@ async function generateStaticPages() {
         }
    
 
-        pages.push({ template: 'pages/page.ejs', output: p.metadata.link, data: { post: p, categories: categories } });
+        pages.push({ template: 'pages/page.ejs', output: p.metadata.link, data: { post: p } });
     });
 
     let dates = Array.from(datesSet);
@@ -111,7 +118,6 @@ async function generateStaticPages() {
             output: d.metadata.link, 
             data: { 
                 posts: collection[d.text], 
-                categories: categories, 
                 dates: formattedDates 
             } 
         });
@@ -120,12 +126,12 @@ async function generateStaticPages() {
     dates = formattedDates;
    
 
-    pages.push({ template: 'index.ejs', output: 'index.html', data: { posts, categories, dates } });
+    pages.push({ template: 'index.ejs', output: 'index.html', data: { posts, dates } });
 
     for (const page of pages) {
         const templatePath = path.join(__dirname, 'src', page.template);
         const outputPath = path.join(__dirname, 'docs', page.output);
-
+        page.data.core = core;
         const html = await renderTemplate(templatePath, page.data);
         fs.writeFileSync(outputPath, html);
         console.log(`Generated: ${outputPath}`);

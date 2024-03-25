@@ -7,7 +7,7 @@ author: Leon
 date: 2024-03-23
 cover: /media/1 2zqbeP26SB5iDgOINWaPfQ-3674822343.png
 ---
-![](/media/1%202zqbeP26SB5iDgOINWaPfQ-3674822343.png)  
+![](/media/1202zqbeP26SB5iDgOINWaPfQ-3674822343.png)  
   
 Port Enumeration:
 

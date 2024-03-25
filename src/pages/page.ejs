@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 
-    <%- include('../partials/nav', { categories: categories }) %>
+    <%- include('../partials/nav', { categories: core.categories }) %>
         <style>
             .content p img {
                 width: 300px;
@@ -31,23 +31,17 @@
                 </div>
                 <div class="four wide right floated column">
                     <div class="ui secondary segment">
-                        <h4 class="ui header">About</h4>
-                        <p>
-                            Etiam porta <i>sem malesuada magna mollis euismod</i>. Cras mattis
-                            consectetur purus sit amet fermentum. Aenean lacinia bibendum
-                            nulla sed consectetur.
-                        </p>
+                        <%- include('../partials/about') %>
+
                     </div>
+
                     <h4 class="ui header">Archives</h4>
                     <div class="ui list">
-         
+                        <%- include('../partials/links', { links: core.links }) %>
+
                     </div>
                     
-                    <h4 class="ui header">Elsewhere</h4>
-                    <div class="ui list">
-                        <a class="item">GitHub</a> <a class="item">Twitter</a>
-                        <a class="item">Facebook</a>
-                    </div>
+      
                 </div>
             </div>
         </div>
