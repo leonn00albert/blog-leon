@@ -53,6 +53,7 @@ async function generateStaticPages() {
         const pages = [];
         const datesSet = new Set();
         const collection = {};
+        const categoriesSet = new Set();
 
         posts.forEach((p) => {
             p.metadata.link = 'pages/' + p.metadata.slug + '.html';
@@ -62,17 +63,26 @@ async function generateStaticPages() {
             const month = timestamp.toLocaleString('en-us', { month: 'long' });
             const year = timestamp.getFullYear();
             const postDate = `${month} ${year}`;
-
+            categoriesSet.add(p.metadata.category);
             datesSet.add(postDate);
+
+
             if (!collection[postDate]) {
                 collection[postDate] = [];
             }
+             if (!collection[p.metadata.category.toLowerCase()]) {
+                collection[p.metadata.category.toLowerCase()] = [];
+            }
+            
             collection[postDate].push(p);
+            collection[p.metadata.category.toLowerCase()].push(p);
 
             pages.push({ template: 'pages/page.ejs', output: p.metadata.link, data: { post: p } });
         });
 
         const dates = Array.from(datesSet).sort((a, b) => new Date(b) - new Date(a));
+        const categories = Array.from(categoriesSet).sort((a, b) => a - b);
+        config.categories = categories.map(c => capitalize(c));
 
         const formattedDates = dates.map((date) => {
             const [month, year] = date.split(' ');
@@ -85,8 +95,23 @@ async function generateStaticPages() {
             };
         });
 
+        const formattedCategories = categories.map((cat) => {
+            
+            return {
+                text: capitalize(cat),
+                metadata: {
+                    slug: cat.toLowerCase().replace(" ",'-'),
+                    link: 'collection/' + cat.toLowerCase().replace(" ",'-') + '.html'
+                }
+            };
+        });
+
         formattedDates.forEach((d) => {
-            pages.push({ template: 'collection/collection.ejs', output: d.metadata.link, data: { posts: collection[d.text], dates: formattedDates } });
+            pages.push({ template: 'collection/collection.ejs', output: d.metadata.link, data: { posts: collection[d.text] || [], dates: formattedDates } });
+        });
+        console.log(formattedCategories)
+        formattedCategories.forEach((d) => {
+            pages.push({ template: 'collection/collection.ejs', output: d.metadata.link, data: { posts: collection[d.text.toLowerCase()] || [], dates: formattedDates } });
         });
 
         pages.push({ template: 'index.ejs', output: 'index.html', data: { posts, dates: formattedDates } });
@@ -112,6 +137,12 @@ function convertDate(date) {
     var year = timestamp.getFullYear();
     var humanReadableDate = day + ', ' + month + ' ' + date + ', ' + year ;
     return humanReadableDate;
+}
+
+
+function capitalize(word) {
+    const capitalized = word.charAt(0).toUpperCase() + word.slice(1);
+    return capitalized;
 }
 
 generateStaticPages();
