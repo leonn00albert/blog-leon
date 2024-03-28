@@ -2,6 +2,7 @@
 published: false
 title: Hack The Box Codify Write Up
 slug: htb-codify
+category: Hacking
 description: Write up for Codify machine on Hack the box
 author: Leon
 date: 2024-03-23
