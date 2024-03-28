@@ -2,6 +2,7 @@
 published: false
 title: Robotics project - progress Update
 slug: robotics-project
+category: robotics
 description: "Robotics Project "
 author: Leon
 date: 2024-03-20
