@@ -10,6 +10,7 @@ content:
       - { name: published, label: Published, type: boolean }
       - { name: title, label: Title, type: string, required: true }
       - { name: slug, label: Slug, type: string, required: true }
+      - { name: category, label: Category, type: string }
       - { name: description, label: Description, type: string }
       - { name: author, label: Author, type: string }
       - { name: date, label: Date, type: date }
