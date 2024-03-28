@@ -3,7 +3,7 @@
         <a class="header active item" href="/">Home</a>
         
         <% categories.forEach(category => { %>
-            <a class="item" href="#<%= category.toLowerCase() %>"><%= category %></a>
+            <a class="item" href="/collection/<%= category.toLowerCase() %>.html"><%= category %></a>
         <% }); %>
         
         <a class="item" href="#root">About</a>
